@@ -127,6 +127,10 @@ endfunction
 
 " }}}
 
+" Command "{{{
+command -nargs=? Sudow :w !sudo tee %
+" "}}}
+
 " Plugins " {{{
 " https://github.com/VundleVim/Vundle.vim
 set rtp+=~/.vim/bundle/Vundle.vim
