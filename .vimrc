@@ -37,7 +37,7 @@ set ruler " show the cursor position all the time
 set showcmd
 
 " php syntax function
-set dictionary+=~/.vim/syntax/php_functions.txt
+set dictionary+=~/.vim/php_functions.txt
 set complete-=k complete+=k
 
 colorscheme default
