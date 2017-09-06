@@ -128,7 +128,14 @@ endfunction
 " }}}
 
 " Command "{{{
-command -nargs=? Sudow :w !sudo tee %
+comm! W exec 'w !sudo tee % > /dev/null' | e!
+
+"Auto commands
+au BufRead,BufNewFile {Gemfile,Rakefile,Capfile,*.rake,config.ru}     set ft=ruby
+au BufRead,BufNewFile {*.md,*.mkd,*.markdown}                         set ft=markdown
+au BufRead,BufNewFile {COMMIT_EDITMSG}                                set ft=gitcommit
+
+au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | execute "normal g'\"" | endif " restore position in file
 " "}}}
 
 " Plugins " {{{
@@ -167,6 +174,23 @@ let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
 " git
 Plugin 'airblade/vim-gitgutter'
 
+" status/tabline
+Plugin 'bling/vim-airline'
+
+Plugin 'python-mode/python-mode'
+
+" markdown
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+set nofoldenable
+let g:vim_markdown_folding_level = 6 
+
+Plugin 'ervandew/supertab'
+Plugin 'bogado/file-line'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
+
 
 call vundle#end()
 " "}}}
+
