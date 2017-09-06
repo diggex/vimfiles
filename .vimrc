@@ -29,8 +29,8 @@ set incsearch
 set ignorecase " search ignore case
 
 " show status line
-set statusline=%2*%n%m%r%h%w%*\ %F\ %1*[FORMAT=%2*%{&ff}:%{&fenc!=''?&fenc:&enc}%1*]\ [TYPE=%2*%Y%1*]\ [COL=%2*%03v%1*]\ [ROW=%2*%03l%1*/%3*%L(%p%%)%1*]\
-set laststatus=2
+" set statusline=%2*%n%m%r%h%w%*\ %F\ %1*[FORMAT=%2*%{&ff}:%{&fenc!=''?&fenc:&enc}%1*]\ [TYPE=%2*%Y%1*]\ [COL=%2*%03v%1*]\ [ROW=%2*%03l%1*/%3*%L(%p%%)%1*]\
+" set laststatus=2
 set number
 
 set ruler " show the cursor position all the time 
@@ -174,8 +174,14 @@ let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
 " git
 Plugin 'airblade/vim-gitgutter'
 
-" status/tabline
+Plugin 'mkitt/tabline.vim'
+
 Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '>'
+let g:airline#extensions#tabline#buffer_nr_show = 1
 
 Plugin 'python-mode/python-mode'
 
