@@ -195,7 +195,7 @@ Plugin 'ervandew/supertab'
 Plugin 'bogado/file-line'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
-
+Plugin 'vim-scripts/snipMate'
 
 call vundle#end()
 " "}}}
