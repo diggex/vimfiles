@@ -14,7 +14,7 @@ set history=100
 set autowrite  " Writes on make/shell commands
 set autoread  
 set timeoutlen=250  " Time to wait after ESC (default causes an annoying delay)
-set clipboard+=unnamed  " Yanks go on clipboard instead.
+" set clipboard+=unnamed  " Yanks go on clipboard instead.
 
 " Backup
 set nowritebackup
@@ -70,8 +70,10 @@ set autoindent
 set cindent
 set cinoptions=:s,ps,ts,cs
 set cinwords=if,else,while,do,for,switch,case
+set nofixendofline
 
 syntax on               " enable syntax
+set re=0
 filetype plugin indent on             " Automatically detect file types.
 " " }}}
 
@@ -170,6 +172,16 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_typescript_checkers = ['eslint']
+
+"autoformat 
+Plugin 'Chiel92/vim-autoformat'
+let g:formatdef_eslint = '"SRC=eslint-temp-${RANDOM}.js; cat - >$SRC; eslint --fix $SRC >/dev/null 2>&1; cat $SRC | perl -pe \"chomp if eof\"; rm -f $SRC"'
+let g:formatters_javascript = ['eslint']
+let g:formatters_typescript = ['eslint']
+noremap <F4> :Autoformat<CR>:w<CR>
+
 
 " git
 Plugin 'airblade/vim-gitgutter'
